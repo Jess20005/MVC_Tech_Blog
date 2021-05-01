@@ -19,12 +19,8 @@
         <!-- Conditionally render login or logout links -->
         <a href="/">homepage</a> |
         <a href="/dashboard">dashboard</a>
-        {{#if logged_in}}
         <a href="/logout">logout</a>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
+           </nav>
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
@@ -36,9 +32,7 @@
   </div>
 
   <!-- Render script for logged in users only -->
-  {{#if logged_in}}
   <script src="/js/logout.js"></script>
-  {{/if}}
 </body>
 
 </html>

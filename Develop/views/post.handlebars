@@ -1,12 +1,41 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
+    <h2>{{post.title}}</h2>
   </div>
 </div>
 
+<div class="row">
+  <div class="col-auto">
+    <h2> Posted by:{{post.User.username}} on {{post.date_created}}</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-auto">
+    <p>{{post.content}}</p>
+  </div>
+</div>
+
+{{#if post.Comments}}
+<div class="row">
+  <div class="col-auto">
+    <h3>Comments:</h3>
+  </div>
+</div>
+
+<div class="row">
+  {{#each post.Comments}}
+  <div class="col-auto">
+    <p>{{text}}</p>
+    <p>{{User.username}}, {{date_created}}</p>
+  </div>
+  {{/each}}
+</div>
+{{/if}}
+
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New Project:</h3>
+    <h3>Create a New Post:</h3>
 
     <form class="form new-project-form">
       <div class="form-group">
