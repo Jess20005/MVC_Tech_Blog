@@ -8,8 +8,8 @@ const editFormHandler = async (event) => {
   ];
 
   if (title && content) {
-    const response = await fetch(`/api/posts/${id}`, {
-      method: 'POST',
+    const response = await fetch(`/api/post/${id}`, {
+      method: 'PUT',
       body: JSON.stringify({ title, content }),
       headers: {
         'Content-Type': 'application/json',
@@ -19,11 +19,11 @@ const editFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Failed to create post');
+      alert('Failed to edit post');
     }
   }
 };
 
 document
   .querySelector('.edit-post-form')
-  .addEventListener('submit', newFormHandler);
+  .addEventListener('submit', editFormHandler);
